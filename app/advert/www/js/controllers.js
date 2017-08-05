@@ -59,7 +59,7 @@ angular.module('starter.controllers', [])
         if($scope.money == data.data.money){
           $scope.limit = true;
         }
-        $scope.money = data.data.money;
+        $scope.money = data.data.money + "";
         localStorage.setItem('money', $scope.money);
       } else {
         logout();

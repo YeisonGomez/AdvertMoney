@@ -3,6 +3,7 @@ var app = express();
 var request = require('request');
 var cheerio = require('cheerio');
 var bodyParser = require('body-parser');
+var config      = require('./config');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -22,7 +23,7 @@ app.post('/generate', function(req, res) {
         	//res.send(body);
             var num_verify = parseInt($('span[class="fontawesome-angle-right px14"]').html());
             if(num_verify >= 0){
-                res.send( { state: "OK", money: num_verify } );
+                res.send( { state: "OK", money: $('span[class="fontawesome-angle-right px14"]').html() } );
             } else {
                 res.send( { state: "ERROR" } );
             }
@@ -46,6 +47,6 @@ app.post('/login', function(req, res) {
         });
 });
 
-app.listen(3006, function() {
-    console.log('Example app listening on port 3006!')
-})
+app.listen(config.server.port, config.server.ip, function(){
+    console.log('Servidor corriendo en ' + config.server.ip + ':' + config.server.port );
+});
