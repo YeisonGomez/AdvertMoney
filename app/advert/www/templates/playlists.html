@@ -1,9 +1,12 @@
-<ion-view view-title="Playlists">
+<ion-view view-title="{{username}}">
   <ion-content>
-    <ion-list>
-      <ion-item ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.id}}">
-        {{playlist.title}}
-      </ion-item>
-    </ion-list>
+  	<h2 ng-show="limit">Ya completo el limite de encuestas</h2>
+    <button class="button button-positive" ng-click="generate()">
+      Generar encuesta
+    </button>
+
   </ion-content>
+	    <div class="bar bar-footer bar-balanced">
+  <div class="title">{{(money == -1)? 'Genera una encuesta' : money + ' USD'}}</div>
+</div>
 </ion-view>
