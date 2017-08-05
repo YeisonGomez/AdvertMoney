@@ -1,4 +1,4 @@
-var api = "http://localhost:3006";
+var api = "http://advert-vgc.rhcloud.com:8080";
 
 angular.module('starter.controllers', [])
 .controller('AppCtrl', function($scope, $ionicModal, $timeout, $http) {

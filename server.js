@@ -8,7 +8,7 @@ var config      = require('./config');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.get('/test', function(){
+app.get('/test', function(req, res){
     res.send("test");
 });
 
